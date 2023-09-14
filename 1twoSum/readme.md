@@ -24,19 +24,19 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
 ```
 <details>
-  <summary><h2> Hint 1</h2></summary>
+  <summary><h2>Show Hint 1</h2></summary>
   <p>The most brute force way is to consider every combination of the array, but there is an optimal way to take combination by fixing a number x.</p>
 </details>
 <details>
-  <summary><h2> Hint 2</h2></summary>
+  <summary><h2>Show Hint 2</h2></summary>
   <p>If you have a number, let's say 'x,' we know that 'target - x' yields some values. Check whether that number exists in the array</p>
 </details>
 <details>
-  <summary><h2> Hint 3</h2></summary>
+  <summary><h2>Show Hint 3</h2></summary>
   <p>Instead of still doing it in a brute force manner, try to think of a data structure that can help you solve it in linear time.</p>
 </details>
 <details>
-  <summary><h2> Hint 3</h2></summary>
+  <summary><h2>Show Hint 4</h2></summary>
   <p>Use hashmap to solve by storing the 'target - x' as a key and index as a value.</p>
 </details>
 
