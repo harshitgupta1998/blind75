@@ -39,5 +39,14 @@ Output: [0,1]
   <summary><h2>Show Hint 4</h2></summary>
   <p>Use hashmap to solve by storing the 'target - x' as a key and index as a value.</p>
 </details>
-
-
+<details>
+  <summary><h2>PseudoCode</h2></summary>
+  <pre>
+    hashmap -> map()
+    for index, number in array
+      difference -> target - x
+      if difference is in target
+        return [hashmap[difference], index]
+    return []
+  </pre>
+</details>
