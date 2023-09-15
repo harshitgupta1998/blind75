@@ -3,12 +3,12 @@
 # usually can solve it in some other way like using two loop would go to O(n^2)
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
-        prevMap = {} # index
+        hashMap = {} # index
         for i, n in enumerate(nums):
             diff = target - n
-            if diff in prevMap:
-                return [prevMap[diff],i]
-            prevMap[n] = i
+            if diff in hashMap:
+                return [hashMap[diff],i]
+            hashMap[n] = i
         return []
 
 print(Solution().twoSum([2, 1, 5, 3], 4))
