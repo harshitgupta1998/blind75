@@ -1,8 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
-// import java.io.*;
 import java.util.*;
-// import java.lang.Math;
 
 class Solution {
     public static int[] twoSum(int[] nums, int target) {
