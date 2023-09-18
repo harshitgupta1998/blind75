@@ -24,3 +24,20 @@ Constraints:
 
 1 <= prices.length <= 105\
 0 <= prices[i] <= 104
+
+<details>
+  <summary><h3>Show Hint 1</h3></summary>
+  <p>To gain maximum profit, you have to buy at the minimum price and sell when it's at the maximum price. So, think of the problem as tracking those minimum and maximum values.</p>
+</details>
+
+---
+<details>
+  <summary><h3>Show Hint 2</h3></summary>
+  <p>Try solving it using the two-pointer concept.</p>
+</details>
+
+---
+<details>
+  <summary><h3>Show Hint 3</h3></summary>
+  <p>Keep track of the minimum using one pointer and the maximum using another pointer. Also, track the maximum profit; update it only if the profit increases by changing the pointer. If the price at the 'r' pointer becomes less than the price at the 'l' pointer, shift 'r' to 'l' and increment 'r'. If the profit increases by doing this, update the max profit; otherwise, do not update it.</p>
+</details>
