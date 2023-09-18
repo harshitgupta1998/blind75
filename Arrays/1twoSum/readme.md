@@ -1,4 +1,4 @@
-## Two Sum
+## 1. Two Sum
 Don't open the solution file directly. Instead, I've provided some hints to help solve the problem. Even if you can't solve the problem, I've provided a pseudocode-like structure for the complete solution at the end. Read it, try to implement it on your own, and then compare it with my actual solution to see how you did.
 
 ## question 
