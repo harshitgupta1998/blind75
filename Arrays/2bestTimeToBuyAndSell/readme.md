@@ -41,3 +41,21 @@ Constraints:
   <summary><h3>Show Hint 3</h3></summary>
   <p>Keep track of the minimum using one pointer and the maximum using another pointer. Also, track the maximum profit; update it only if the profit increases by changing the pointer. If the price at the 'r' pointer becomes less than the price at the 'l' pointer, shift 'r' to 'l' and increment 'r'. If the profit increases by doing this, update the max profit; otherwise, do not update it.</p>
 </details>
+
+---
+<details>
+  <summary><h3>Pseudocode</h3></summary>
+  <pre>
+    l -> 0
+    r -> 1
+    maxProfit -> 0
+    for [i -> 1 to length(prices)]
+      if prices[l] < prices[r]
+           newProfit -> prices[r] - prices[l]
+           maxProfit -> if newProfit > maxProfit then newProfit else maxProfit
+      else
+           l -> r
+      r ++
+    return maxProfit
+  </pre>
+</details>
