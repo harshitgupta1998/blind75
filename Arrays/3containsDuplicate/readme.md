@@ -1,1 +1,1 @@
-## Contains Duplicate (leetcode 217)
+## 217. Contains Duplicate
