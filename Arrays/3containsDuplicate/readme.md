@@ -44,3 +44,14 @@ Constraints:
   </summary>
   <p>You can use a HashTable or HashSet to solve this problem in linear time by storing the visited elements in a HashSet or HashTable as keys for each iteration. By checking if the element already exists in the HashSet, you can return true if it does, and false if it doesn't. Finally, after the completion of the loop.</p>
 </details>
+<details>
+  <summary><h3>Pseudocode</h3></summary>
+  <pre>
+    countSet -> hashSet()
+    for each number in array
+      if number exists in keyhs(countSet) then
+        return true
+      countSet.key(number).value(1)
+    return false
+  </pre>
+</details>
