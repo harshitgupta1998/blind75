@@ -22,8 +22,8 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 
 Constraints:
 
-1 <= prices.length <= 10**5\
-0 <= prices[i] <= 10**4
+1 <= prices.length <= 10^5\
+0 <= prices[i] <= 10^4
 
 <details>
   <summary><h3>Show Hint 1</h3></summary>
