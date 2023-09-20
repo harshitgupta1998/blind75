@@ -1,4 +1,4 @@
-## Two Sum
+## 1. Two Sum
 Don't open the solution file directly. Instead, I've provided some hints to help solve the problem. Even if you can't solve the problem, I've provided a pseudocode-like structure for the complete solution at the end. Read it, try to implement it on your own, and then compare it with my actual solution to see how you did.
 
 ## question 
@@ -23,6 +23,11 @@ Example 3:
 Input: nums = [3,3], target = 6
 Output: [0,1]
 ```
+Constraints:
+- 2 <= nums.length <= 10^4
+- -10^9 <= nums[i] <= 10^9
+- -10^9 <= target <= 10^9
+- Only one valid answer exists.
 <details>
   <summary><h2>Show Hint 1</h2></summary>
   <p>The most brute force way is to consider every combination of the array, but there is an optimal way to take combination by fixing a number x.</p>
