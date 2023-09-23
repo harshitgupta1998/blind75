@@ -1,20 +1,21 @@
-# leetcode 153 find minimum in rotated sorted array facebook medium
+# leetcode 153
 # unique elements  return min and return solve it in O(log n)
 # can able to use sliding window to search pair of decaresing value where it decreases we can find the minimum value
 class Solution:
     def findMin(self, nums: list[int]) -> int:
+        pre = 1
+        post = 1
+        r = len(nums) - 1
+        l = 0
         res = nums[0]
-        
-        l, r = 0, len(nums) - 1
-        
-        while l <= r:
-            if nums[l] < nums[r]:
-                res = min(nums[l], res)
-            mid = (l + r) // 2
-            res = min(res, nums[mid])
-            if nums[mid] >= nums[l]:
-                l = mid + 1
-            else:
-                r = mid - 1
-        
+        while r > -1 and l < len(nums):
+            if pre == 0:
+                pre = 1
+            if post == 0:
+                post = 1
+            pre *= nums[l]
+            l += 1
+            post *= nums[r]
+            r -= 1
+            res = max(pre, post, res)
         return res
