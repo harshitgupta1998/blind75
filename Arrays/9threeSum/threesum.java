@@ -3,8 +3,8 @@ class Solution {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
         int l = 0,
-                r = nums.length - 1,
-                threeSum = 0;
+            r = nums.length - 1,
+            threeSum = 0;
         List<Integer> r1 = new ArrayList<>();
 
         for (int i = 0; i < nums.length; i++) {
