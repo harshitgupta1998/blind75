@@ -30,3 +30,37 @@ Constraints:
 - All values of nums are unique.
 - nums is an ascending array that is possibly rotated.
 - -10^4 <= target <= 10^4
+
+<details>
+  <summary><h3>Show Hint 1</h3></summary>
+  <p>This problem is similar to find minimum in rotated sorted array. Same method, try to solve it with a target.</p>
+</details>
+
+---
+<details>
+  <summary><h3>Show Hint 2</h3></summary>
+  <p>Calculate mid check whether it equal to target or check whether nums mid element greater than left then we are in left sorted portion check the target is greater than nums[left] and also less than nums[mid] if it is then then shift right to mid - 1 else shift left to mid + 1. If mid is not greater than then check the target is less than nums[right] and also greater than mid so it is in right sorted portion then shift left to mid + 1 else shift right to mid - 1. That's all for the algorithm lastly return -1 at the end of loop if target isn't in the array.</p>
+</details>
+
+---
+<details>
+  <summary><h3>Pseudocode</h3></summary>
+  <pre>
+    left -> 0
+    right -> nums.length - 1
+    while left lessThanOrEqualTo right
+      mid -> (left + right) // 2
+      if nums[mid] == target then return mid
+      elseif nums[mid] lessThanOrEqual nums[left] then
+        if target greaterThanOrEqual nums[left] and target lessThan nums[mid] then
+          right -> mid - 1
+        else
+          left -> mid + 1
+      else
+        if target lessThanOrEqual nums[right] and target greaterThan nums[mid] then
+          left -> mid + 1
+        else
+          right -> mid - 1
+    return -1
+  </pre>
+</details>
