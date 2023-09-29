@@ -20,8 +20,6 @@ class Solution:
             res = max(res, area)
             if h[l] < h[r]:
                 l += 1
-            # elif h[l] > h[r]:
-            #     r -= 1
             else:
                 r -= 1
         return res
