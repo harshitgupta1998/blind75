@@ -9,7 +9,6 @@ class Solution:
             rob2 = temp
             r3 = r4
             r4 = t2
-        print(r4, rob2)
         res = max(nums[0], r4, rob2) # edge case
         return res
 print(Solution().rob([1,2,3,1]))
