@@ -33,13 +33,13 @@ class Solution:
             if s[r] not in exists:
                 res = max(res, r - l + 1)
             else:
-                if exists[s[r]] < 1:
+                if exists[s[r]] < l:
                     res = max(res, r - l + 1)
                 else:
                     l = exists[s[r]] + 1
             exists[s[r]] = r
         return res
-print(Solution().lengthOfLongestSubstring("abcabcbb"))
+print(Solution().solution2("abcabcbb"))
 print(Solution().lengthOfLongestSubstring("pwwkew"))
 print(Solution().lengthOfLongestSubstring("abcadefghijklmnopqrstuv"))
 print(Solution().lengthOfLongestSubstring("dvdf"))
