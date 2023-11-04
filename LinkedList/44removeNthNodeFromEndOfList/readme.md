@@ -34,8 +34,18 @@ Constraints:
 
 ---
 <details>
-  <summary><h3>Show Hint 2</h3></summary>
+  <summary><h3>Pseudocode</h3></summary>
   <pre>
-    
+    dummy -> ListNode()
+    l -> dummy
+    r -> head
+    while n greaterThan 0 and r not equal null
+      r -> r.next
+      n -> n - 1
+    while r not equal null
+      l -> l.next
+      r -> r.next
+    l.next -> l.next.next
+    return dummy.next
   </pre>
 </details>
