@@ -1,18 +1,36 @@
+import org.w3c.dom.Node;
+
 public class reorderList {
-    public class ListNode {
-        int val;
-        ListNode next;
+    // public class ListNode {
+    // int val;
+    // ListNode next;
 
-        ListNode() {
-        }
+    // ListNode() {
+    // }
 
-        ListNode(int val) {
+    // ListNode(int val) {
+    // this.val = val;
+    // }
+
+    // ListNode(int val, ListNode next) {
+    // this.val = val;
+    // this.next = next;
+    // }
+    // }
+    static class ListNode {
+        private int val;
+        private ListNode next;
+
+        public ListNode(int val) {
             this.val = val;
         }
 
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
+        public void setNext(ListNode node) {
+            this.next = node;
+        }
+
+        public ListNode getNext() {
+            return this.next;
         }
     }
 
@@ -40,6 +58,28 @@ public class reorderList {
             second.next = tmp1;
             first = tmp1;
             second = tmp2;
+        }
+    }
+
+    public static void main(String[] args) {
+        ListNode l5 = new ListNode(5);
+        ListNode l4 = new ListNode(4);
+        ListNode l3 = new ListNode(3);
+        ListNode l2 = new ListNode(2);
+        ListNode l1 = new ListNode(1);
+        l1.setNext(l2);
+        l2.setNext(l3);
+        l3.setNext(l4);
+        l4.setNext(l5);
+        ReorderList(l1);
+        printLinkedList(l1);
+    }
+
+    public static void printLinkedList(ListNode node) {
+        ListNode top = node;
+        while (top != null) {
+            System.out.print(top.val + " ");
+            top = top.getNext();
         }
     }
 }
