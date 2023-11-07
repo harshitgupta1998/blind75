@@ -1,20 +1,19 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution {
+public class setMatrixZeroes {
     public static void setZeroes(int[][] matrix) {
         int Rows = matrix.length,
-            Cols = matrix[0].length;
+                Cols = matrix[0].length;
         boolean rowBool = false,
-            oneRow = false;
+                oneRow = false;
         for (int row = 0; row < Rows; row++) {
             for (int column = 0; column < Cols; column++) {
                 if (matrix[row][column] == 0) {
                     matrix[0][column] = 0;
                     if (row > 0) {
                         rowBool = true;
-                    }
-                    else {
+                    } else {
                         oneRow = true;
                     }
                 }
@@ -37,10 +36,11 @@ public class Solution {
         for (int[] row : matrix) {
             System.out.println(Arrays.toString(row));
         }
-        
+
     }
+
     public static void main(String[] args) {
-        int[][] mat = {{1,1,1},{1,0,1},{1,1,1}};
+        int[][] mat = { { 1, 1, 1 }, { 1, 0, 1 }, { 1, 1, 1 } };
         setZeroes(mat);
     }
 }
