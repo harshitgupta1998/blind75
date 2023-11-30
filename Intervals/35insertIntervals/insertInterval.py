@@ -1,6 +1,5 @@
 class Solution:
     def insertInterval(self, interval: list[list[int]], newInterval: list[int]) -> list[list[int]]:
-        # O(n)
         result = []
         for i in range(len(interval)):
             if newInterval[1] < interval[i][0]:
