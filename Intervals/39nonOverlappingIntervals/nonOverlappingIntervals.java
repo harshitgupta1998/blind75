@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class nonOverlappingIntervals {
     public static int nonOverLap(int[][] intervals) {
