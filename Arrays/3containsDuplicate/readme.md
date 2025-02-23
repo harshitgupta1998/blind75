@@ -1,5 +1,13 @@
 ## 217. Contains Duplicate
 
+Walkthrough
+###
+1. Brute force it is to iterate the entire list in O(N^2) 
+2. we can use a set here where we can store the value in set and see if the value is already in set
+3. or directly compare the len(set(list) != len(list) and get the answer
+
+###
+
 Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
 Example 1:
