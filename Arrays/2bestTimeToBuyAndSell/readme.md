@@ -1,5 +1,42 @@
 ## 121. Best Time to Buy and Sell stock
 
+
+Walkthrough
+###
+1. Brute force it is to iterate the entire list in O(N^2) and res = max(res, sell - buy) return res i.e TC -  O(N^2) SC - O(1)
+2. we can use a 2 pointer left and right starting the pointer from same side at 0,1 then update profit and pointer accordingly. i.e TC -  O(N) SC - O(1)
+3. or DP can be used we can store the maxprofit and minbuy and iterate and update both to get the max profit i.e TC -  O(N) SC - O(N)
+
+```
+  ### We can use enumerate to access the value and key at once
+ def maxProfit(self, prices: List[int]) -> int:
+        #
+        l=0
+        r=1
+        maxp=0
+        while r<len(prices):
+            if prices[r]>prices[l]:
+                maxp=max(maxp,prices[r]-prices[l])
+            else:
+                l=r
+            r+=1
+        return maxp
+
+OR
+     def maxProfit(self, prices: List[int]) -> int:
+        #
+        maxp=0
+        minbuy=prices[0]
+        for sell in prices:
+            maxp=max(maxp,sell-minbuy)
+            minbuy=min(minbuy,sell)
+        return maxp
+
+
+        
+```
+
+
 You are given an array prices where prices[i] is the price of a given stock on the ith day.
 
 You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
