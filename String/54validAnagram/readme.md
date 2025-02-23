@@ -1,5 +1,26 @@
 ### 242. Valid Anagram
 
+Walkthrough
+###
+1. Brute force it is to compare the length and check sorted(s)==sorted(t)
+2. we can use a two hashtable and also store the values separately in both and then in the last compare the hashtable
+3. or use flag and increment and decrement value to check if it is non zero at last i.e TC -  O(N) SC - O(1) since list is of a fixed size O(1)
+
+```
+       def isAnagram(self, s: str, t: str) -> bool:
+          list = [0]*26
+          for i in s:
+              list[ord(i)-ord('a')]+=1
+          for i in t:
+              list[ord(i)-ord('a')]-=1
+          for i in range(26):
+              if list[i]!=0:
+                  return False
+          return True
+```
+
+
+
 Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 
 An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
@@ -9,17 +30,6 @@ Example 1:
 Input: s = "anagram", t = "nagaram"
 Output: true
 ```
-Example 2:
-```
-Input: s = "rat", t = "car"
-Output: false
-```
-
-Constraints:
-
-- 1 <= s.length, t.length <= 5 * 10^4
-- s and t consist of lowercase English letters.
-
 *Follow up*: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
 
 <details>
