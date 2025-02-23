@@ -19,13 +19,13 @@ Walkthrough
 ####
   Recursion
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if not head:
+        if not head: # Basecase
             return None
-        newhead=head
-        if head.next:
-            newhead=self.reverseList(head.next)
-            head.next.next=head
-        head.next=None
+        newhead=head # save the head in a temp 
+        if head.next: 
+            newhead=self.reverseList(head.next) # call function recursive on head.next
+            head.next.next=head # reverse the pointer 
+        head.next=None # mark the last pointer as None
         return newhead
 
 ```
