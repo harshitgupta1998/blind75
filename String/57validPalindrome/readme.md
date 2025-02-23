@@ -1,5 +1,34 @@
 ### 125. Valid Palindrome
 
+
+Walkthrough
+###
+1. Brute force it is to iterate the entire list and store the alphanumeric values then check nums==nums[::-1] i.e TC -  O(N^2) SC - O(1)
+2. declare left and right pointer then increment the left or decrement the right if they are not alphanum else check is s[l].lower()==s[r].lower() if not return false
+```
+  ### Make sure to use isalnum() and not isalpha()
+    def isPalindrome(self, s: str) -> bool:
+        l=0
+        r=len(s)-1
+        while l<r:
+            print(s[l],s[r])
+            
+            if not s[l].isalnum():
+                l+=1
+            elif not s[r].isalnum():
+                r-=1
+            elif (s[l].lower())==(s[r].lower()):
+                l+=1
+                r-=1
+                
+            
+            else:
+                return False
+        return True
+
+        
+```
+
 A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
 
 Given a string s, return true if it is a palindrome, or false otherwise.
