@@ -1,4 +1,34 @@
 ### 206. Reverse Linked List
+Walkthrough
+###
+1. Recursion i.e TC -  O(N) SC - TC O(N)
+2. We can iterative check the variable for curr, prev and use it to flip the pointer i.e TC -  O(N) SC - O(1) Space Optimised
+
+```
+
+  ### Iterative
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # Iterative
+        prev,curr=None, head
+        while curr:
+            temp=curr.next
+            curr.next=prev
+            curr=temp
+        return prev
+
+####
+  Recursion
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head:
+            return None
+        newhead=head
+        if head.next:
+            newhead=self.reverseList(head.next)
+            head.next.next=head
+        head.next=None
+        return newhead
+
+```
 
 Given the head of a singly linked list, reverse the list, and return the reversed list.
 
