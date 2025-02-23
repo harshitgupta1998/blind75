@@ -6,6 +6,12 @@ Walkthrough
 2. we can use a set here where we can store the value in set and see if the value is already in set
 3. or directly compare the len(set(list) != len(list) and get the answer
 
+'''
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(nums)!=len(set(nums))
+'''
+
+
 ###
 
 Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
