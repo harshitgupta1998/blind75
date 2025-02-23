@@ -1,5 +1,23 @@
 ## 1. Two Sum
-Don't open the solution file directly. Instead, I've provided some hints to help solve the problem. Even if you can't solve the problem, I've provided a pseudocode-like structure for the complete solution at the end. Read it, try to implement it on your own, and then compare it with my actual solution to see how you did.
+
+
+Walkthrough
+###
+1. Brute force it is to iterate the entire list in O(N^2) and see if nums[i}+nums[j]==target return [i,j] i.e TC -  O(N^2) SC - O(1)
+2. we can use a set here where we can store the value in set and see if the value is already in set
+3. or directly map={} store map[nums[i]]=i then see if the target - nums[i] is in the map and return [map[nums[i],i] i.e TC -  O(N) SC - O(N)
+
+```
+  ### We can use enumerate to access the value and key at once
+ def twoSum(self, nums: List[int], target: int) -> List[int]:
+        map={} 
+        for i in range(len(nums)):
+            if target-nums[i] in map:
+                return [map[target-nums[i]],i]
+            else:
+                map[nums[i]]=i
+        
+```
 
 ## question 
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -12,22 +30,9 @@ Output: [0,1]
 Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 ```
 ```
-Example 2:
 
-Input: nums = [3,2,4], target = 6
-Output: [1,2]
 ```
-```
-Example 3:
 
-Input: nums = [3,3], target = 6
-Output: [0,1]
-```
-Constraints:
-- 2 <= nums.length <= 10^4
-- -10^9 <= nums[i] <= 10^9
-- -10^9 <= target <= 10^9
-- Only one valid answer exists.
 
 <details>
   <summary><h2>Show Hint 1</h2></summary>
