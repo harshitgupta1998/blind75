@@ -1,5 +1,27 @@
 ### 20. Valid Parentheses
+Walkthrough
+###
+1. We can maintain a hashmap and add map to the stack and pop if condition is meant or append to stack i.e TC -  O(N) SC - O(N)
 
+```
+  ### maintain a hashmap and stack
+    def isValid(self, s: str) -> bool:
+        stack=[]
+        map={')':'(',']':'[','}':'{'}
+        for i in s:
+            if i in ['(','[','{']:
+                stack.append(i)
+            elif stack and stack[-1]==map[i]:
+                stack.pop()
+            else:
+                return False
+        return stack==[]
+
+
+
+
+        
+```
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
 An input string is valid if:
