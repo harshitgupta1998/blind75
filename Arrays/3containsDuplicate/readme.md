@@ -4,7 +4,7 @@ Walkthrough
 ###
 1. Brute force it is to iterate the entire list in O(N^2) 
 2. we can use a set here where we can store the value in set and see if the value is already in set
-3. or directly compare the len(set(list) != len(list) and get the answer
+3. or directly compare the len(set(list) != len(list) and get the answer i.e TC -  O(N) SC - O(N)
 
 ```
     def containsDuplicate(self, nums: List[int]) -> bool:
