@@ -1,5 +1,32 @@
 ### 141. Linked List Cycle
-
+Walkthrough
+###
+1. We can solve this problem using set or fast/slow pointer 
+2. Check with set if the value is present else return False i.e TC -  O(N) SC - O(N)
+3.  We can use slow and fast pointer and slow will eventually catch up with fast pointer i.e TC -  O(N) SC - O(1)
+```
+  ### Slow and fast
+      def hasCycle(self, head: Optional[ListNode]) -> bool:
+        slow,fast=head,head
+        while fast and fast.next:
+            slow=slow.next
+            fast=fast.next.next
+            if slow==fast:
+                return True
+        return False
+  ###  USing set
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        set1=set()
+        curr=head
+        while curr:
+            if curr.val in set1:
+                return True
+            else:
+                set1.add(curr.val)
+                curr=curr.next
+        return False
+        
+```
 Given head, the head of a linked list, determine if the linked list has a cycle in it.
 
 There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
