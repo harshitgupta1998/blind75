@@ -1,4 +1,34 @@
 ### 100. Same Tree (Easy)
+Walkthrough 
+1. We can use recursive DFS and check p.val and q.val  TC -> O(N) SC-> O(height)
+2. We can use iterative DFS where we maintain a stack of tuple [(p,q)] starting with appending p,q  TC -> O(N) SC-> O(N)
+
+```
+# DFS Recursively
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if not p and not q:
+            return True
+        if p and q and p.val==q.val:
+            return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
+        else:
+            return False
+# BFS
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        stack=[(p,q)]
+        # until stack is not empty
+        while stack:
+            node1,node2=stack.pop()
+           # pop and check the condition
+            if not node1 and not node2:
+                continue
+            if not node1 or not node2 or node1.val!=node2.val:
+                return False
+            # Then append left and right
+            stack.append((node1.right,node2.right))
+            stack.append((node1.left,node2.left))
+        return True
+```
+
 
 Given the roots of two binary trees p and q, write a function to check if they are the same or not.
 
