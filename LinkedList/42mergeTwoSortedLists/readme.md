@@ -1,5 +1,55 @@
 ### 21. Merge Two Sorted Lists
 
+
+
+Walkthrough
+###
+1. We can solve this problem using recursion or iteration 
+2. For recursion we have to understand the base case first for both node list1 and list2 and the recursive call the function TC -  O(N+M) SC - O(N+M)
+3. For iteration we can create a dummy node and dummy pointer and check based on while condition until all elments are added and then add the remaining i.e TC -  O(N+M) SC - O(1)
+
+```
+  ### Recusrsion
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+      # Check the base case
+        if list1 is None:
+            return list2
+        if list2 is None:
+            return list1
+    # Check the condition for list1 and list2
+  ''' The current node in list1 is smaller (or equal), so it becomes part of the merged list.
+The function recursively merges the remaining part of list1 (list1.next) with the entire list2 by calling self.mergeTwoLists(list1.next, list2).
+Once the recursion completes, the node from list1 will point to the merged result.'''
+        if list1.val<=list2.val:
+            list1.next=self.mergeTwoLists(list1.next,list2)
+            return list1
+        
+        else:
+            list2.next=self.mergeTwoLists(list1,list2.next)
+            return list2
+
+
+    ### Iteration
+        # Intialize the pointer and header
+        dummy=node=ListNode()
+        while list1 and list2:
+            if list1.val < list2.val:
+                # attach the list 1 to the node 
+                node.next=list1
+                list1=list1.next
+            else:
+                node.next=list2
+                list2=list2.next
+            # update the node to point to next 
+            node=node.next
+        # append the remaining 
+        node.next=list1 or list2
+
+        return dummy.next
+        
+```
+
+
 You are given the heads of two sorted linked lists list1 and list2.
 
 Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
