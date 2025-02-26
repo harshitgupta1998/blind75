@@ -1,4 +1,23 @@
 ### 11. Container With Most Water
+ Walkthrough
+
+ 1. We can iterate using the brute force which will be O(N^2)
+ 2. We can maintain left and right pointer and l+=1 or r-=1 based on checking and keeping the largest of height[l] or height[r] and calc the volume
+```
+    def maxArea(self, heights: List[int]) -> int:
+        left=0
+        right=len(heights)-1
+        maxvol=0
+        while left<right:
+            maxvol=max(maxvol,min(heights[left],heights[right])*abs(left-right))
+            if heights[left]<=heights[right]:
+                left+=1
+            else:
+                right-=1
+        return maxvol
+
+```
+
 
 You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
 
