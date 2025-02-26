@@ -1,4 +1,21 @@
 ### 49. Group Anagrams
+Walkthrough
+
+1. We can create a defaultdict(list) which will store the list inside a dict
+2. we can create a tuple from count [0]*26 as the key to the anagram values
+3. ord(c) to store them at the specific position
+4. return the list(res.values())
+   
+```
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        res=defaultdict(list)
+        for s in strs:
+            count=[0]*26
+            for c in s:
+                count[ord(c)-ord('a')]+=1
+            res[tuple(count)].append(s)
+        return list(res.values())
+```
 
 Given an array of strings strs, group the anagrams together. You can return the answer in any order.
 
