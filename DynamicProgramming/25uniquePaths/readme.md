@@ -1,4 +1,20 @@
 ### 62. Unique Paths
+Walkthrogh
+1. We can use recursion and call the function return 1 for edge, 0 other outlier, else return dfs(i+1,j) + dfs(i,j+1) O(2^(m+n))
+2. DP we can use 2 rows from left to right and down to top TC O(m*n) SC O(m)
+
+```
+
+    def uniquePaths(self, m: int, n: int) -> int:
+        row=[1]*n
+        for i in range(m-1):
+            newrow=[1]*n
+            for j in range(n-2,-1,-1):
+                newrow[j]=newrow[j+1]+row[j]
+            row=newrow
+        return row[0]
+    
+```
 
 There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.
 
