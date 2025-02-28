@@ -1,4 +1,26 @@
 ### 1143. Longest Common Subsequence
+
+1. We can use recursion, but TC O(2^m)
+2. Instead we can create a m*n matrix and then develop logic based on string matching 
+
+```
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        # one change will affect the all rows
+        # ans=[[0]*(len(text2)+1)]*(len(text1)+1)
+        #print(ans)
+        # Use this method
+        ans = [[0 for j in range(len(text2) + 1)] 
+                 for i in range(len(text1) + 1)]
+        print(ans)
+        for i in range(len(text1)-1,-1,-1):
+            for j in range(len(text2)-1,-1,-1):
+                if text1[i]==text2[j]:
+                    ans[i][j]=1+ans[i+1][j+1]
+                else:
+                    ans[i][j]=max(ans[i][j+1],ans[i+1][j])
+        return ans[0][0]
+```
+
 Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0.
 
 A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters.
