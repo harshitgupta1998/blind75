@@ -1,4 +1,42 @@
 ### 3. Longest Substring Without Repeating Character
+Walkthrough:
+
+1. We can use left and right pointer starting from left, then maintain a len var to store the max length
+2. We can also push and pop from the set, while maintaining the max len and return it.   TC O(2*N)
+3. Optimal we can do is, instead of moving l by 1 we can try to directly move it to position of character and instead of set we can use map or dict. TC O(N)
+
+```
+    # O(2N)
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if len(s)==0: #check base case
+            return 0
+        # initial th`e values
+        res=0
+        l=0
+        set1=set()
+        for r in range(len(s)):
+            if s[r] in set1:
+                # because we need to pop until the duplicate in set
+                while l<r and s[r] in set1:
+                    set1.remove(s[l])
+                    l+=1
+            set1.add(s[r])
+            res=max(res,r-l+1)
+        return res
+    TC O(N)
+    def lengthOfLongestSubstring(self, s: str) -> int:
+    map=[-1]*256
+    left,right,length=0,0,0
+    n=len(s)
+    while right<n:
+        if map[ord(s[right])] != -1:
+            left=max(map[ord(s[right])]+1,left)
+        map[ord(s[right])]=right
+        length=max(length,(right-left+1))
+        right+=1
+    return length
+
+```
 
 Given a string s, find the length of the longest substring without repeating characters.
 
