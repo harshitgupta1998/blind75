@@ -1,5 +1,61 @@
 ### 5. Longest Palindromic Substring
 
+Walkthrough
+1.  We can use 2 pointers start from left and calc all the substr O(N^3)
+2.  We can bring the pointer to the center of the string and check the left and right
+3.  We will  have to handle the odd and even length separately in that case. O(N^2) SP: O(N)
+4.  Using 2D matrix we can use DP to solve the problem. O(N^2) SP:O(N^2)
+
+```
+    def longestPalindrome(self, s: str) -> str:
+        res=""
+        reslen=0
+        for i in range(len(s)):
+            l,r=i,i
+            while l>=0 and r<len(s) and s[l]==s[r]:
+               
+                if reslen<r-l+1:
+                    res=l
+                    reslen=r-l+1
+                l-=1
+                r+=1
+        
+            l,r=i,i+1
+            while l>=0 and r<len(s) and s[l]==s[r]:
+               
+                if reslen<r-l+1:
+                    res=l
+                    reslen=r-l+1
+                l-=1
+                r+=1
+        return s[res:res+reslen]
+
+or
+
+    def longestPalindrome(self, s: str) -> str:
+        #         Walkthrough
+        # 1.  We can use 2 pointers start from left and calc all the substr O(N^3)
+        # 2.  We can bring the pointer to the center of the string and check the left and right
+        # 3.  We will  have to handle the odd and even length separately in that case. O(N^2) SP: O(N)
+        # 4.  Using 2D matrix we can use DP to solve the problem. O(N^2) SP:O(N^2)
+        if len(s)<=1:
+            return s
+        maxlen=1
+        maxstr=s[0]
+        dp=[[False for i in range(len(s))] for j in range(len(s))]
+
+        for i in range(len(s)):
+            dp[i][i]=True
+            for j in range(i):
+                if s[j]==s[i] and (i-j<=2 or dp[j+1][i-1]):
+                    dp[j][i]=True
+                    if i-j+1 > maxlen:
+                        maxlen=i-j+1
+                        maxstr=s[j:i+1]
+        return maxstr
+```
+
+
 Given a string s, return the longest palindromic substring in s.
 
 Example 1:
