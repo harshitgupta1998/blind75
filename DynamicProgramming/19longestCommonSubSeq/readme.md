@@ -1,10 +1,5 @@
 ### 1143. Longest Common Subsequence
 
-Walkthrough
-1.  We can use 2 pointers start from left and calc all the substr O(N^3)
-2.  We can bring the pointer to the center of the string and check the left and right
-3.  We will  have to handle the odd and even length separately in that case. O(N^2) SP: O(N)
-4.  Using 2D matrix we can use DP to solve the problem. O(N^2) SP:O(N^2)
 
 
 1. We can use recursion, but TC O(2^m)
