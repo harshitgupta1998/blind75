@@ -1,5 +1,45 @@
 ### 19. Remove Nth Node from End of List
 
+WalkThrough:
+1. Take a value n and store the length of the node in first iteration
+2. Using second itercation if n==len then head.next or iterate and return cur.next==cur.next.next, two pass O(N)
+3. We can double pointer from same side for one iteration
+```
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        cur=head
+        N=0
+        while cur:
+            cur=cur.next
+            N+=1
+        
+        removeindex=N-n
+        if removeindex==0:
+            return head.next
+        i=0
+        cur=head
+        for i in range(N-1):
+            if i+1==removeindex:
+                cur.next=cur.next.next
+                break
+            cur=cur.next
+        return head
+OR
+        def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+          dummy=ListNode(0,head)
+          left=dummy
+          right=head
+          while n>0:
+              right=right.next
+              n-=1
+          while right:
+              left=left.next
+              right=right.next
+          left.next=left.next.next
+          return dummy.next
+
+
+```
+
 Given the head of a linked list, remove the nth node from the end of the list and return its head.
 
 Example 1:
