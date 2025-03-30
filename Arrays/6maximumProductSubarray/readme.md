@@ -1,5 +1,20 @@
 ### 152. Maximum Product Subarray
+Walkthrough
+1. We can use the n^2 calculating all the subarrays and taking the maximum product
+2. We can use Kadane's Algorithm to calculate the max and min at once to get it in O(N)
 
+```
+    def maxProduct(self, nums: List[int]) -> int:
+        res=nums[0]
+        curmax=1
+        curmin=1
+        for n in nums:
+            temp=curmax*n
+            curmax=max(temp,curmin*n,n )
+            curmin=min(temp,curmin*n,n)
+            res=max(res,curmax,curmin)
+        return res
+```
 Given an integer array nums, find a subarray that has the largest product, and return the product.
 
 The test cases are generated so that the answer will fit in a 32-bit integer.
