@@ -1,4 +1,20 @@
 ### 153. Find Minimum in Rotated Sorted Array
+Walkthrough
+1. sort or select the min in nlogn time.
+2. Else we can use bin search and modify it logic for logn solution
+
+```
+    def findMin(self, nums: List[int]) -> int:
+        l, r = 0, len(nums) - 1
+        while l < r:
+            m = l + (r - l) // 2
+            if nums[m] < nums[r]:
+                r = m
+            else:
+                l = m + 1
+        return nums[l]
+
+```
 Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become:\
 [4,5,6,7,0,1,2] if it was rotated 4 times.\
 [0,1,2,4,5,6,7] if it was rotated 7 times.\
